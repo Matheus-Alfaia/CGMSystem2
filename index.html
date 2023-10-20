@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/styleLogin.css" />
+    <link rel="stylesheet" href="fonts/fontes.css" />
+    <title>LOGIN</title>
+  </head>
+  <body>
+    <main>
+      <div class="main-login">
+        <div class="left-login">
+          <h1>Faça seu login<br />Afrodite Moda's</h1>
+        </div>
+        <form method="POST" action="login.php">
+          <div class="right-login">
+            <div class="card-login">
+              <div class="textfield">
+                <label id="userLogin" for="user">Login</label>
+                <input
+                  type="text"
+                  id="user"
+                  placeholder="Login"
+                  name="user"
+                  required />
+              </div>
+              <div class="textfield">
+                <label id="passwordSenha" for="pass">Senha</label>
+                <!-- <i class="fa-solid fa-eye"></i> -->
+                <input
+                  type="password"
+                  id="pass"
+                  placeholder="Senha"
+                  name="pass"
+                  required />
+              </div>
+              <button
+                type="submit"
+                class="btn-login"
+                value="Enviar"
+                name="enviar">
+                ENTRAR
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

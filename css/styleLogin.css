@@ -1,0 +1,121 @@
+body {
+  margin: 0;
+  font-family: Dancing Script;
+}
+
+main {
+  background: url("../img/Design sem nome.png") no-repeat center center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.main-login {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-login {
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.left-login > h1 {
+  color: white;
+  font-size: 10vh;
+  font-family: "Dancing Script", cursive;
+  text-shadow: 5px 10px 20px #dc143c;
+}
+
+.left-login > img {
+  width: 20vw;
+  border-image-outset: 5px 10px 20px #dc143c;
+}
+
+.right-login {
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card-login {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px 35px;
+  background: #000;
+  border-radius: 20px;
+  box-shadow: 0px 0px 100px #dc143c;
+  font-family: Rowdies;
+}
+
+.card-login > h1 {
+  color: black;
+  font-weight: 800;
+  margin: 0;
+}
+
+.textfield {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 10px;
+}
+
+.textfield > input {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  background: #ffdead;
+  color: black;
+  font-size: 12pt;
+  /*box-shadow: 0px 0px 100px #d50182;*/
+  outline: none;
+  box-sizing: border-box;
+}
+
+.textfield > label {
+  color: white;
+  margin-bottom: 10px;
+  justify-content: center;
+}
+
+.textfield > input::placeholder {
+  color: black;
+  font-family: Rowdies;
+}
+
+.btn-login {
+  width: 100%;
+  padding: 16px 0px;
+  margin: 25px;
+  border: none;
+  border-radius: inherit;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: black;
+  background: #dc143c;
+  cursor: pointer;
+  box-shadow: 0px 10px 40px -12px #dc143c;
+}
+
+.btn-login:hover {
+  transform: scale(1.05);
+  transition: all 0.5s;
+}

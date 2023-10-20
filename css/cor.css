@@ -1,0 +1,48 @@
+.jumbotron{
+	background-color:#99FF99;
+	color:blue;
+	margin:0px;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	padding-bottom:22px;
+	padding-top:22px;
+}
+.table-striped{
+	color:black;
+}
+/*.bg{
+	background-color: transparent;
+}*/
+.table-bordered{
+	/*background-color:#99FF99;*/
+	color:blue;
+}
+
+.form-control{
+	background-color:#fff;
+}
+
+.form-group{
+	color:black;
+}
+.ff{
+	color:black;
+}
+.container{
+	margin:0px;
+	height: 480px;
+	max-width: 100%;
+	background-color:#99FF99;
+}
+.Sword{font-size: 40px; color:blue;}
+.btn{
+	margin:5px;
+}
+
+.corzona{
+	color: pink;
+
+}
+a{
+	color:#FFC0CB;
+}

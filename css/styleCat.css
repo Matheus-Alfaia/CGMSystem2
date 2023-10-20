@@ -1,0 +1,44 @@
+.listar-all {
+  background-color: black;
+}
+
+/* Catálogo */
+
+.produto .img > img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.produto .img > img:hover {
+  transform: scale(1.05);
+  transition: all 0.3s;
+}
+
+.produto .img {
+  padding: 5px;
+}
+
+.produto:hover {
+  background-color: #dc143c;
+  transform: scale(1.05);
+  transition: all 0.3s;
+}
+
+.produto i {
+  color: #ffd700;
+}
+
+.produto .card-button .text-center .btn-outline-warning {
+  width: 150px;
+  border-color: white;
+}
+
+.produto .card-button .text-center .btn-outline-warning:hover {
+  transform: scale(1.05);
+  transition: all 0.3s;
+}
+
+.retirar {
+  margin-top: 15px;
+}

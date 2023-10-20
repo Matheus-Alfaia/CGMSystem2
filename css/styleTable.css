@@ -1,0 +1,50 @@
+.listar-all-table {
+  max-width: 100%;
+  margin: 10px 0px 10px 50px;
+  display: flex;
+  padding: 10px;
+  flex-direction: inherit;
+  flex-wrap: wrap;
+  overflow: scroll;
+  /*background-color: red;*/
+}
+
+.listar-all-table::-webkit-scrollbar {
+  display: none;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table td,
+.table th {
+  padding: 5px 15px;
+  border: 1px solid #dc143c;
+  text-align: center;
+  font-size: 16px;
+}
+
+.table td a {
+  text-decoration: none;
+}
+
+.table th {
+  background-color: #dc143c;
+  color: white;
+}
+
+.table td i {
+  color: #fff;
+}
+
+.table tbody {
+  background-color: black;
+  color: white;
+}
+
+/*.table tbody tr:nth-child(even){
+	background-color: #f5f5f5;
+	color: black;
+}*/

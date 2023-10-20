@@ -1,0 +1,160 @@
+.listar-all {
+  margin-top: 50px;
+  /*background-color: yellow;*/
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  flex-direction: inherit;
+  flex-wrap: wrap;
+  overflow: scroll;
+  /*background-color: blue;*/
+}
+
+.listar-all::-webkit-scrollbar {
+  display: none;
+}
+
+.listar-all .produto {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  margin: 20px;
+}
+
+.listar-all .h-100 {
+  height: 100% !important;
+}
+
+.listar-all .card-color {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  box-shadow: 0px 0px 10px #dc143c;
+  /*border-color: #dc143c;*/
+}
+
+.listar-all .h-100 .card-body {
+  flex: 1 1 auto;
+  padding: 1rem 1rem;
+}
+
+.listar-all .h-100 .card-body .color-name {
+  color: #fff;
+}
+
+.listar-all .card-button {
+  padding: 0.5rem 1rem;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.listar-all .card-button:last-child {
+  border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px);
+}
+
+.listar-all .card-button .text-center {
+  padding: 10px;
+  text-align: center !important;
+  border-color: #fffefa;
+  /*background-color: red;*/
+  border-radius: 10px;
+}
+
+.listar-all .card-button .text-center a {
+  text-decoration: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .listar-all .card-button .text-center .btn {
+    transition: none;
+  }
+}
+
+.listar-all .card-button .text-center .btn {
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #dc143c;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.listar-all .card-button .text-center .btn:hover {
+  color: #212529;
+}
+
+.listar-all .card-button .text-center .btn-outline-warning {
+  color: white;
+  border-color: #dc143c;
+  /*background-color: red;*/
+}
+
+.listar-all .card-button .text-center .btn-outline-warning:hover {
+  color: white;
+  background-color: #dc143c;
+  border-color: white;
+  box-shadow: 0px 0px 100px 0px #dc143c;
+}
+
+.listar-all .card-button .text-center .btn-check:focus + .btn-outline-warning,
+.btn-outline-warning:focus {
+  box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.5);
+}
+.listar-all .card-button .text-center .btn-check:checked + .btn-outline-warning,
+.btn-check:active + .btn-outline-warning,
+.btn-outline-warning:active,
+.btn-outline-warning.active,
+.btn-outline-warning.dropdown-toggle.show {
+  color: #000;
+  background-color: #f5f4f0;
+  border-color: #fbfbf9;
+}
+.listar-all
+  .card-button
+  .text-center
+  .btn-check:checked
+  + .btn-outline-warning:focus,
+.btn-check:active + .btn-outline-warning:focus,
+.btn-outline-warning:active:focus,
+.btn-outline-warning.active:focus,
+.btn-outline-warning.dropdown-toggle.show:focus {
+  box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.5);
+}
+.listar-all .card-button .text-center .btn-outline-warning:disabled,
+.btn-outline-warning.disabled {
+  color: #ffc107;
+  background-color: transparent;
+}
+
+.btn-check {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  pointer-events: none;
+}
+.btn-check[disabled] + .btn,
+.btn-check:disabled + .btn {
+  pointer-events: none;
+  filter: none;
+  opacity: 0.65;
+}
