@@ -2,10 +2,17 @@
 
 // Inicio das funções do Produto
 
-function cadastrarProduto($conexao, $nome, $imagem, $descricao, $valor_vendido, $quantidade, $tamanho, $idFornecedor){
-	$query = mysqli_query($conexao, "INSERT INTO produto (NomeP, Imagem, Descricao, Valor_Venda, Quantidade, Tamanho, IdFornecedor) 
+function cadastrarProduto($conexao, $nome, $imagem, $descricao,$idFornecedor,$valor_bruto, $valor_vendido, $localizacao, $material, $categoria){
+	$query = mysqli_query($conexao, "INSERT INTO produto (NomeP, Imagem, Descricao, idFornecedor, valorBruto,valorVenda,localizacao, material, categoria) 
 		VALUES 
-				('$nome', '$imagem', '$descricao', '$valor_vendido', '$quantidade', '$tamanho', '$idFornecedor')");
+				('$nome', '$imagem', '$descricao', '$idFornecedor', '$valor_bruto', '$valor_vendido', '$localizacao','$material','$	categoria')");
+	return $query;
+}
+
+function cadastrarEntrega($conexao, $nota, $data, $info,$idProduto){
+	$query = mysqli_query($conexao, "INSERT INTO entrada (nota, data, info, idProduto) 
+		VALUES 
+				('$nota', '$data', '$info', '$idProduto')");
 	return $query;
 }
 	
@@ -29,7 +36,7 @@ function selecionaProdutos($conexao, $produto){
 }
 
 function selecionaQTDProdutos($conexao, $idproduto){
-	$query = mysqli_query($conexao, "SELECT * FROM produto WHERE IdProduto = ".$idproduto);
+	$query = mysqli_query($conexao, "SELECT * FROM caracteristica_produto WHERE IdProduto = ".$idproduto);
 	$produto = mysqli_fetch_assoc($query);
 	return $produto;
 }
@@ -41,7 +48,7 @@ function selecionarMaiorProd($conexao){
 }
 
 function alterarQTD($conexao, $idProduto, $quantidade){
-	$query = mysqli_query($conexao, "UPDATE produto SET Quantidade = '{$quantidade}' WHERE IdProduto = '{$idProduto}'");
+	$query = mysqli_query($conexao, "UPDATE caracteristica_produto SET Quantidade = '{$quantidade}' WHERE IdProduto = '{$idProduto}'");
 	return $query;
 }
 
@@ -55,12 +62,6 @@ function selecionaNome($conexao, $idprod){
 	return $query;
 }
 
-//funçãoo do carrinho
-// function calcularQuantidadeDisponivel($produto_id, $quantidade_no_carrinho) {
-//     // Substitua isso pela sua lógica de busca da quantidade total do produto no banco de dados
-//     $quantidade_total = selecionaQTDProdutos($conexao, $produto_id);
-//     return $quantidade_total - $quantidade_no_carrinho;
-// }
 
 // Fim das funções do Produto
 
@@ -274,7 +275,7 @@ function excluirCaracProd($conexao, $idcp){
 
 // Início das funções do Cliente
 function cadastrarCliente($conexao, $nome){
-	$query = mysqli_query($conexao, "INSERT INTO  (Nome) VALUES 	('$nome')");
+	$query = mysqli_query($conexao, "INSERT INTO  (Nome) VALUES ('$nome')");
 	return $query;
 }
 function listarCliente($conexao){

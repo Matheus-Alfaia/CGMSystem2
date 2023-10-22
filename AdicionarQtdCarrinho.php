@@ -8,12 +8,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Certifique-se de que a quantidade seja um número positivo
         if ($quantidade > 0) {
-            // Adicione ou atualize a quantidade no carrinho
-            $_SESSION['carrinho'][$produto_id] = $quantidade;
+            // Verifique se o produto já existe no carrinho
+            if (isset($_SESSION['carrinho'][$produto_id])) {
+                // Se o produto já existe, adicione a nova quantidade à quantidade existente
+                $_SESSION['carrinho'][$produto_id] += $quantidade;
+            } else {
+                // Se o produto não existe no carrinho, defina a nova quantidade
+                $_SESSION['carrinho'][$produto_id] = $quantidade;
+            }
         }
     }
 }
 
-header("Location: Listar-Produto-Catalogo.php"); // Redirecione para a página do carrinho
+header("Location: carrinho.php"); // Redirecione para a página do carrinho
 exit;
 ?>

@@ -1,0 +1,32 @@
+/* Estilo para o formulário do carrinho */
+.cart-form {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+/* Estilo para a entrada de quantidade */
+.quantity-input {
+    width: 50px;
+    text-align: center;
+}
+
+/* Estilo para o botão de adicionar ao carrinho */
+.add-to-cart-button {
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/* Estilo para o botão de confirmar */
+.confirm-button {
+    background-color: #33cc33;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}

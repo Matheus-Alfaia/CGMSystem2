@@ -1,55 +1,20 @@
-		<!-- Início Menu -->
+		
 
 	<?php
-		session_start();
-		//include "funcoes.php";
-
-		if (isset($_GET['IdProduto'])) {
-			$produto_id = $_GET['IdProduto'];
-		
-			// Verifique se o produto já existe no carrinho
-			if (isset($_SESSION['carrinho'][$produto_id])) {
-				// O produto já está no carrinho, exiba o formulário para ajustar a quantidade
-				echo "<form method='post' action='AdicionarQtdCarrinho.php'>";
-				echo "<input type='number' name='quantidade' value='" . $_SESSION['carrinho'][$produto_id] . "'>";
-				echo "<input type='hidden' name='produto_id' value='$produto_id'>";
-				echo "<input type='submit' value='Atualizar Quantidade'>";
-				echo "</form>";
-			} else {
-				// O produto não está no carrinho, exiba o formulário para adicionar a quantidade
-				echo "<form method='post' action='AdicionarQtdCarrinho.php'>";
-				echo "<input type='number' name='quantidade' value='1'>";
-				echo "<input type='hidden' name='produto_id' value='$produto_id'>";
-				echo "<input type='submit' value='Adicionar ao Carrinho'>";
-				echo "</form>";
-			}
-		
-			//$quantidade_disponivel = calcularQuantidadeDisponivel($produto_id, $_SESSION['carrinho'][$produto_id]);
-		}
-		
+		session_start();	
 		
 		// Função para remover um produto do carrinho
-		if (isset($_GET['remove'])) {
-			$produto_id = $_GET['remove'];
-			if (isset($_SESSION['carrinho'][$produto_id])) {
-				if ($_SESSION['carrinho'][$produto_id] > 1) {
-					$_SESSION['carrinho'][$produto_id]--;
-				} else {
-					unset($_SESSION['carrinho'][$produto_id]);
-				}
-			}
-		}
 
-		if (isset($_SESSION['carrinho'])) {
-			foreach ($_SESSION['carrinho'] as $produto_id => $quantidade) {
-				// Exibir os detalhes do produto no carrinho
-				//$quantidade_disponivel = calcularQuantidadeDisponivel($produto_id, $quantidade);
-			// Exibir os detalhes do produto no carrinho, incluindo a quantidade disponível
-			echo "Produto ID: $produto_id | Quantidade no Carrinho: $quantidade <br>";
-			}
-		} else {
-			echo "Seu carrinho está vazio.";
-		}
+		// if (isset($_SESSION['carrinho'])) {
+		// 	foreach ($_SESSION['carrinho'] as $produto_id => $quantidade) {
+		// 		// Exibir os detalhes do produto no carrinho
+		// 		//$quantidade_disponivel = calcularQuantidadeDisponivel($produto_id, $quantidade);
+		// 	// Exibir os detalhes do produto no carrinho, incluindo a quantidade disponível
+		// 	echo "Produto ID: $produto_id | Quantidade no Carrinho: $quantidade <br>";
+		// 	}
+		// } else {
+		// 	echo "Seu carrinho está vazio.";
+		// }
 
 		
 	?>
@@ -144,42 +109,65 @@
 			</div>
 
 			<?php
-				define("TITULO", "CADASTRO DE PRODUTOS");
+				define("TITULO", "CATÁLOGO DE PRODUTOS");
 				include "cabecalho.php";
 				include_once "conn/conexao.php";
 				include "funcoes.php";
 				include "rodape.php";
+				
 
+				echo "<div class='listar-all'>";
+					echo "<div class='produto h-100 card-color'>";
+						echo "<div class='card-button'>";
+							echo "<div class='text-center'>";
+								echo '<a class="btn btn-outline-warning" href="AdicionarProduto.php">Adicionar +</a><br>';
+											
+										//echo'</a>';
+									//echo"</div>";			
+								echo "</div>";
+						echo "</div>";
+				echo "</div>";
+				echo "</div>";
 				echo "<div class='listar-all'>";
 					$produto 	= listarProduto($conexao);
 					$carac		= listarCaracProd($conexao);
 					foreach ($produto as $p):
 						$idprod = $p['IdProduto'];
+						$quantidade = NULL;
+						foreach ($carac as $c){
+							if ($c['IdProduto'] == $idprod) {
+								$quantidade = $c['Quantidade']; 
+								break;
+							}
+						}
 						echo "<div class='produto h-100 card-color'>";
 							echo "<div class='card-body'>";
-								echo '<center><h3 class="color-name">'.$p['NomeP'].': ('.$p['Quantidade'].')</h3></center>';
+								echo '<center><h3 class="color-name">'.$p['NomeP'].'</h3></center>';
 								echo '<div class="img">';
 									echo '<img src="Produtos/'.$p['Imagem'].'">';
 								echo "</div>";
 							echo "</div>";
 							echo "<div class='card-button'>";
 								echo "<div class='text-center'>";
-								// echo '<a class="btn btn-outline-warning" href="AdicionarProduto.php?IdProduto='.$p['IdProduto'].'">Adicionar</a><br>';
 								
-								//echo '<a class="btn btn-outline-warning retirar" href="carrinho.php">Adicionar ao Carrinho</a><br>';
-									echo"<div class='btn btn-outline-warning retirar'>";	
-										echo"<a href='Listar-Produto-Catalogo.php'>";
 											echo'<div class="card">';
 												echo'<div class="img">';
-													echo"<i class='bx bxs-cart'></i>";
+												if ($quantidade > 0) {
+													// Se a quantidade for maior que 0, o botão é habilitado
+													echo '<a class="btn btn-outline-warning" href="carrinho.php?IdProduto=' . $p['IdProduto'] . '">Adicionar ao carrinho</a><br>';
+												} else {
+													// Se a quantidade for igual a 0, o link é desabilitado
+													echo '<span class="btn btn-outline-warning" onclick="return false;">Indisponivel</span><br>';
+												}
 												
 												echo'</div>';
 											echo'</div>';
-										echo'</a>';
-									echo"</div>";			
+										//echo'</a>';
+									//echo"</div>";			
 								echo "</div>";
 							echo "</div>";
 						echo "</div>";
+						
 					endforeach;
 					
 				echo "</div>";
